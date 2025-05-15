@@ -146,6 +146,17 @@ public class MainWindow extends JFrame {
             } catch (InvalidRectException _) { }
         });
 
+        mainPanel.addPanListener(delta -> {
+            double dx = conv.xScr2Crt(delta.x) - conv.xScr2Crt(0);
+            double dy = conv.yScr2Crt(delta.y) - conv.yScr2Crt(0);
+
+            conv.setxMin(conv.getxMin() - dx);
+            conv.setxMax(conv.getxMax() - dx);
+            conv.setyMin(conv.getyMin() - dy);
+            conv.setyMax(conv.getyMax() - dy);
+
+            mainPanel.repaint();
+        });
 
         mainPanel.setBackground(Color.WHITE);
         mainPanel.setPaintAction(g -> {
