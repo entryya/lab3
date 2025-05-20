@@ -11,8 +11,10 @@ public class Dialogs {
         chooser.setMultiSelectionEnabled(false);
         chooser.setAcceptAllFileFilterUsed(!save);
         var jpgFilter = new FileNameExtensionFilter("Файлы формата jpeg", "jpg", "jpeg");
+        var pngFilter = new FileNameExtensionFilter("Файлы формата png", "png");
         var fracFilter = new FileNameExtensionFilter("Файла собственного формата frac", "frac");
         chooser.setFileFilter(jpgFilter);
+        chooser.setFileFilter(pngFilter);
         chooser.setFileFilter(fracFilter);
         if ((save ?
                 chooser.showSaveDialog(null) :
@@ -22,6 +24,7 @@ public class Dialogs {
             var filter = chooser.getFileFilter();
             if (!filter.accept(new File(fileName))){
                 if (filter == jpgFilter) fileName += ".jpg";
+                if (filter == pngFilter) fileName += ".png";
                 if (filter == fracFilter) fileName += ".frac";
             }
             return new File(fileName);

@@ -25,6 +25,10 @@ public class FractalPainter implements Painter{
         return img;
     }
 
+    public Converter getConv() {
+        return conv;
+    }
+
     @Override
     public void setWidth(int width) {
         conv.setWidth(width);

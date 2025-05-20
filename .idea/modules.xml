@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../lab2/out/artifacts/Converting_jar/Converting_jar.iml" filepath="$PROJECT_DIR$/../lab2/out/artifacts/Converting_jar/Converting_jar.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab3.iml" filepath="$PROJECT_DIR$/lab3.iml" />
     </modules>
   </component>
