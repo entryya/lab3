@@ -143,6 +143,7 @@ public class MainWindow extends JFrame {
                 var yMin = conv.yScr2Crt(r.getY() + r.getHeight());
                 var yMax = conv.yScr2Crt(r.getY());
 
+                hm.save(conv);
                 approveBorders(xMin, xMax, yMin, yMax);
                 mainPanel.repaint();
             } catch (InvalidRectException _) { }
@@ -173,12 +174,14 @@ public class MainWindow extends JFrame {
                 conv.setWidth(mainPanel.getWidth());
                 conv.setHeight(mainPanel.getHeight());
 
+                hm.save(conv);
                 approveBorders(conv.getxMin(), conv.getxMax(), conv.getyMin(), conv.getyMax());
+                undo.setEnabled(hm.canUndo());
             }
         });
     }
     private void approveBorders(double xMin, double xMax, double yMin, double yMax) {
-        hm.save(conv);
+        //hm.save(conv);
 
         double viewportAspect = (double) mainPanel.getWidth() / mainPanel.getHeight();
         double selectionAspect = (xMax - xMin) / (yMax - yMin);
@@ -198,6 +201,6 @@ public class MainWindow extends JFrame {
         conv.setxMax(xMax);
         conv.setyMin(yMin);
         conv.setyMax(yMax);
-        undo.setEnabled(hm.canUndo());
+        //undo.setEnabled(hm.canUndo());
     }
 }
